@@ -1,0 +1,26 @@
+run:
+  timeout: 3m
+  tests: true
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - gofmt
+    - goimports
+    - revive
+    - unused
+    - deadcode
+    - structcheck
+    - varcheck
+
+issues:
+  exclude-rules:
+    - text: "should have comment or be unexported"
+      linters:
+        - golint
+
+linters-settings:
+  gofmt:
+    simplify: true

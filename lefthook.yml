@@ -1,0 +1,7 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: go-fmt
+      run: go fmt ./...
+    - name: go-vet
+      run: go vet ./...

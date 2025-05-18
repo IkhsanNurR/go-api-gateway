@@ -1,0 +1,7 @@
+services:
+  - name: user-service
+    path_prefix: /user
+    target_url: http://localhost:8001
+  - name: ranap-service
+    path_prefix: /order
+    target_url: http://localhost:5002
