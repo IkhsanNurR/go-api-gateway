@@ -1,7 +1,7 @@
 package appconfig
 
 import (
-	"log"
+	"fmt"
 	"os"
 )
 
@@ -23,33 +23,35 @@ var AccessKey = ""
 var SecretKey = ""
 var UseSsl = false
 var Bucket = ""
+var RedisHost = ""
+var RedisPassword = ""
 
 func InitAppConfig() {
 
 	if os.Getenv("APP_PORT") == "" {
 		AppPort = ":8080"
-		log.Default().Println("AppPort is not set. Defaulting to :8080")
+		fmt.Println("AppPort is not set. Defaulting to :8080")
 	} else {
 		AppPort = os.Getenv("APP_PORT")
 	}
 
 	if os.Getenv("APP_ENV") == "" {
 		AppEnv = "dev"
-		log.Default().Println("AppEnv is not set. Defaulting to development")
+		fmt.Println("AppEnv is not set. Defaulting to development")
 	} else {
 		AppEnv = os.Getenv("APP_ENV")
 	}
 
 	if os.Getenv("API_KEY") == "" {
 		APIKey = "1234"
-		log.Default().Println("APIKey is not set. Defaulting to 1234")
+		fmt.Println("APIKey is not set. Defaulting to 1234")
 	} else {
 		APIKey = os.Getenv("API_KEY")
 	}
 
 	if os.Getenv("API_KEY_MOBILE") == "" {
 		APIKeyMobile = "1234"
-		log.Default().Println("API_KEY_MOBILE is not set. Defaulting to 1234")
+		fmt.Println("API_KEY_MOBILE is not set. Defaulting to 1234")
 	} else {
 		APIKeyMobile = os.Getenv("API_KEY_MOBILE")
 	}
@@ -67,4 +69,6 @@ func InitAppConfig() {
 	SecretKey = os.Getenv("MINIO_SECRETKEY")
 	UseSsl = os.Getenv("MINIO_USE_SSL") == "true"
 	Bucket = os.Getenv("MINIO_BUCKET")
+	RedisHost = os.Getenv("REDIS_HOST")
+	RedisPassword = os.Getenv("REDIS_PASSWORD")
 }

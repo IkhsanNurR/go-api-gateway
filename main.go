@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -32,7 +31,6 @@ func main() {
 
 	app := gin.Default()
 	config.InitConfig()
-	fmt.Println(app_config.AppPort)
 
 	// Init Minio client
 	minioClient := minioconfig.NewMinioClient()
